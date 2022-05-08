@@ -24,7 +24,8 @@
 
                     <!--Grid column-->
                     <div class="col-md-9 mb-md-0 mb-5">
-                        <form id="contact-form" name="contact-form" action="#!" method="POST">
+                        <form id="contact-form" name="contact-form" action="" method="POST">
+                            @csrf
 
                             <!--Grid row-->
                             <div class="row">
@@ -77,12 +78,13 @@
                             </div>
                             <!--Grid row-->
 
+                            <div class="text-center text-md-left m-4">
+                                <button class="btn btn-primary">Send</button>
+                            </div>
+                            <div class="status"></div>
+
                         </form>
 
-                        <div class="text-center text-md-left m-4">
-                            <a class="btn btn-primary">Send</a>
-                        </div>
-                        <div class="status"></div>
                     </div>
                     <!--Grid column-->
 

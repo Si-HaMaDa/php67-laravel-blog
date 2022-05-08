@@ -25,6 +25,10 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::post('/contact', function () {
+    dd(request()->all());
+});
+
 Route::get('/blog', function () {
     return view('blog');
 });
