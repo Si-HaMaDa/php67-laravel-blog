@@ -32,3 +32,7 @@ Route::post('/contact', function () {
 Route::get('/blogs', function () {
     return view('blogs');
 })->name('blogs');
+
+Route::get('/blogs/single', function () {
+    return view('blog-single');
+})->name('blogs.single');
