@@ -1,7 +1,6 @@
 @extends('layout.main')
 
-
-@section('title','Contact US Page')
+@section('title', 'Contact US Page')
 
 
 @section('content')
@@ -114,3 +113,21 @@
 </section>
 
 @endsection
+
+
+@push('js')
+<script src="normlize.js"></script>
+@endpush
+
+@push('js')
+<script src="jquery.js"></script>
+@endpush
+
+@push('styles')
+<link href="css/new.css" rel="stylesheet" />
+<style>
+    h2 {
+        color: red
+    }
+</style>
+@endpush

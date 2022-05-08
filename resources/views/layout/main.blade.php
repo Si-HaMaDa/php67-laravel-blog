@@ -15,6 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- My style sheet -->
     <link href="css/styles.css" rel="stylesheet" />
+    @stack('styles')
 </head>
 
 <body>
@@ -35,6 +36,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    @stack('js')
 </body>
 
 </html>
