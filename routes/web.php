@@ -19,16 +19,16 @@ Route::get('/', function () {
 
 Route::get('/home', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/contact', function () {
     return view('contact');
-});
+})->name('contact');
 
 Route::post('/contact', function () {
     dd(request()->all());
 });
 
-Route::get('/blog', function () {
-    return view('blog');
-});
+Route::get('/blogs', function () {
+    return view('blogs');
+})->name('blogs');
