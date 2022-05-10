@@ -19,6 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/try', function () {
+    dd(
+        env('APP_URL', 'http://localhost/')
+    );
+});
+
 
 /*
 
@@ -53,4 +59,4 @@ Route::post('/contact', [HomeController::class, 'contactSend']);
 
 Route::get('/blogs', [BlogController::class, 'blogs'])->name('blogs');
 
-Route::get('/blogs/single', [BlogController::class, 'blogsSingle'])->name('blogs.single');
+Route::get('/blogs/{id}', [BlogController::class, 'blogsSingle'])->name('blogs.single');
