@@ -8,6 +8,10 @@ Route::get('/', [AdminController::class, 'index'])->name('index');
 
 Route::get('blogs', [BlogController::class, 'index'])->name('blogs.index');
 
-Route::get('blogs/{id}/show', [BlogController::class, 'show'])->name('blogs.show');
+Route::get('blogs/create', [BlogController::class, 'create'])->name('blogs.create');
 
-Route::get('blogs/{id}/delete', [BlogController::class, 'delete'])->name('blogs.delete');
+Route::post('blogs', [BlogController::class, 'store'])->name('blogs.store');
+
+Route::get('blogs/{id}', [BlogController::class, 'show'])->name('blogs.show');
+
+Route::delete('blogs/{id}', [BlogController::class, 'destroy'])->name('blogs.destroy');

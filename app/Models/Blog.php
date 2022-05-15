@@ -6,4 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
+    public $timestamps = false;
+
+    public $fillable = ['title', 'content', 'user_id', 'image'];
 }

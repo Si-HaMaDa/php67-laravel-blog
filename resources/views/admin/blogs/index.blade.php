@@ -3,8 +3,17 @@
 @section('title', 'Blogs')
 
 @section('content')
+
+@if (session('success'))
+
+<div class="alert alert-success m-5">
+    {{ session('success') }}
+</div>
+
+@endif
+
 <h2 class="mt-5">Blogs
-    <a class="float-end h6 btn btn-primary btn-sm" href="/admin/blogs/add-blog.php">Add Blog</a>
+    <a class="float-end h6 btn btn-primary btn-sm" href="{{ route('admin.blogs.create') }}">Add Blog</a>
 </h2>
 <div class="table-responsive pt-3 pb-2 mb-3 border-bottom">
     <table class="table table-striped table-sm">
@@ -27,8 +36,8 @@
                     {{ $blog->title }}
                 </td>
                 <td>
-                    <img width="200" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt=""
-                        srcset="https://dummyimage.com/700x350/dee2e6/6c757d.jpg">
+                    <img width="200" src="{{ url('storage/'.$blog->image) }}" alt="">
+                    {{-- <img width="200" src="{{ \Storage::url($blog->image) }}" alt=""> --}}
                 </td>
                 <td>
                     <a href="{{ route('admin.blogs.show', $blog->id) }}" class="btn btn-outline-primary btn-sm">
@@ -39,10 +48,19 @@
                         <i class="fa fa-edit"></i>
                     </a>
 
-                    <a href="{{ route('admin.blogs.delete', $blog->id) }}"
+                    {{-- <a href="{{ route('admin.blogs.destroy', $blog->id) }}"
                         class="btn btn-danger btn-sm sa-btn-delete">
                         <i class="fa fa-trash"></i>
-                    </a>
+                    </a> --}}
+
+                    <form class="d-inline" action="{{ route('admin.blogs.destroy', $blog->id) }}" method="post">
+                        @csrf
+                        <input type="hidden" name="_method" value="delete">
+                        <button class="btn btn-danger btn-sm sa-btn-delete">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </form>
+
                 </td>
             </tr>
             @endforeach
