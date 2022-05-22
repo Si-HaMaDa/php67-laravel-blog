@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AdminController::class, 'index'])->name('index');
@@ -21,3 +22,5 @@ Route::get('/', [AdminController::class, 'index'])->name('index');
 // Route::delete('blogs/{id}', [BlogController::class, 'destroy'])->name('blogs.destroy');
 
 Route::resource('blogs', BlogController::class);
+
+Route::resource('users', UserController::class);

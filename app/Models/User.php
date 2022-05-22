@@ -41,4 +41,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /* public function getNameAttribute($value)
+    {
+        return 'Mr. ' . $value;
+    }
+
+    public function getEmailAttribute($value)
+    {
+        return explode('@', $value)[0];
+    }
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = 'Mr. ' . $value;
+    } */
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
 }
