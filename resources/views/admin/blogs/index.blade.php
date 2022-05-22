@@ -22,6 +22,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Title</th>
                 <th scope="col">Image</th>
+                <th scope="col">User</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -38,6 +39,9 @@
                 <td>
                     <img width="200" src="{{ url('storage/'.$blog->image) }}" alt="">
                     {{-- <img width="200" src="{{ \Storage::url($blog->image) }}" alt=""> --}}
+                </td>
+                <td>
+                    {{ $blog->user->name }}
                 </td>
                 <td>
                     <a href="{{ route('admin.blogs.show', $blog->id) }}" class="btn btn-outline-primary btn-sm">

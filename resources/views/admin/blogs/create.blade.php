@@ -36,7 +36,12 @@
             </div>
             <div class="col-md-6">
                 <label for="inputUserID4" class="form-label">UserID</label>
-                <input type="number" class="form-control" id="inputUserID4" name="user_id" value="{{ old('user_id') }}">
+                <select class="form-control" name="user_id" id="user_id">
+                    <option value="">Select user</option>
+                    @foreach ($users as $user)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="col-12">
                 <button type="submit" class="btn btn-primary">Submit Blog</button>

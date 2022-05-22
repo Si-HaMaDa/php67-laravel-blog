@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -11,14 +12,15 @@ class BlogController extends Controller
 
     public function index()
     {
-        $blogs = Blog::all();
+        $blogs = Blog::with('user')->get();
 
         return view('admin.blogs.index', ['blogs' => $blogs]);
     }
 
     public function create()
     {
-        return view('admin.blogs.create');
+        $users = User::select('id', 'name')->get();
+        return view('admin.blogs.create', ['users' => $users]);
     }
 
     public function store(Request $request)

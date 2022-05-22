@@ -14,7 +14,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Content</th>
                 <th scope="col">Image</th>
-                <th scope="col">User ID</th>
+                <th scope="col">User Name</th>
             </tr>
         </thead>
         <tbody>
@@ -32,7 +32,7 @@
                     {{ $blog['image'] }}
                 </td>
                 <td>
-                    {{ $blog['user_id'] }}
+                    {{ $blog->user->name }}
                 </td>
             </tr>
         </tbody>
