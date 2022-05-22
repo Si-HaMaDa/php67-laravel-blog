@@ -60,3 +60,7 @@ Route::post('/contact', [HomeController::class, 'contactSend']);
 Route::get('/blogs', [BlogController::class, 'blogs'])->name('blogs');
 
 Route::get('/blogs/{id}', [BlogController::class, 'blogsSingle'])->name('blogs.single');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
