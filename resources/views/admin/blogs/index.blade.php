@@ -12,8 +12,9 @@
 
 @endif
 
-<h2 class="mt-5">Blogs
-    <a class="float-end h6 btn btn-primary btn-sm" href="{{ route('admin.blogs.create') }}">Add Blog</a>
+<h2 class="mt-5">{{ __('blogs.blogs') }}
+    <a class="float-end h6 btn btn-primary btn-sm" href="{{ route('admin.blogs.create') }}">
+    {{ __('blogs.add_blog') }}</a>
 </h2>
 <div class="table-responsive pt-3 pb-2 mb-3 border-bottom">
     <table class="table table-striped table-sm">
