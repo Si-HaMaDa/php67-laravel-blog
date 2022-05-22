@@ -57,6 +57,7 @@ class User extends Authenticatable
         $this->attributes['name'] = 'Mr. ' . $value;
     } */
 
+    // TODO:: Fix update and register problem
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);
