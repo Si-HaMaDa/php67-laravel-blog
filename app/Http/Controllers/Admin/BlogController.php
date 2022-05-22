@@ -57,6 +57,36 @@ class BlogController extends Controller
         return view('admin.blogs.show', ['blog' => $blog]);
     }
 
+    public function edit($id)
+    {
+        $blog = Blog::findOrfail($id);
+        return view('admin.blogs.edit', ['blog' => $blog]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $blog = Blog::findOrFail($id);
+
+        $request->validate([
+            'title' => 'required|max:255|min:5',
+            'content' => 'required',
+            'user_id' => 'required|integer',
+            'image' => ['nullable', 'image'],
+        ]);
+
+        $data = $request->all();
+
+        if (isset($request->image)) {
+            \Storage::delete($blog->image);
+            $image = $request->file('image')->store('blogs');
+            $data['image'] = $image;
+        }
+
+        $blog->update($data);
+
+        return redirect(route('admin.blogs.index'))->with('success', 'Blog updated!');
+    }
+
     public function destroy($id)
     {
         $blog = Blog::findOrfail($id);

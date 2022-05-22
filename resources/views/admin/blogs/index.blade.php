@@ -44,7 +44,7 @@
                         <i class="fa fa-eye"></i>
                     </a>
 
-                    <a href="/admin/blogs/edit-blog.php?id={{ $blog->id }}" class="btn btn-outline-info btn-sm">
+                    <a href="{{ route('admin.blogs.edit', $blog->id) }}" class="btn btn-outline-info btn-sm">
                         <i class="fa fa-edit"></i>
                     </a>
 

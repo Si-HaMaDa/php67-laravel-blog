@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Blog extends Model
 {
-    public $timestamps = false;
+    use HasFactory;
+    // public $timestamps = false;
 
     public $fillable = ['title', 'content', 'user_id', 'image'];
 }
