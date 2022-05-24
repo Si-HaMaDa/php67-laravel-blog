@@ -60,6 +60,11 @@ class User extends Authenticatable
     // TODO:: Fix update and register problem
     public function setPasswordAttribute($value)
     {
-        $this->attributes['password'] = bcrypt($value);
+        /* if (\Hash::needsRehash($value)) {
+            $this->attributes['password'] = \Hash::make($value);
+        } else {
+            $this->attributes['password'] = $value;
+        } */
+        $this->attributes['password'] = \Hash::needsRehash($value) ? \Hash::make($value) : $value;
     }
 }
