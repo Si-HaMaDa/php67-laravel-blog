@@ -63,4 +63,12 @@ Route::get('/blogs/{id}', [BlogController::class, 'blogsSingle'])->name('blogs.s
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/page', [App\Http\Controllers\HomeController::class, 'page'])->name('page');
+
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); //->middleware('auth');
+
+});

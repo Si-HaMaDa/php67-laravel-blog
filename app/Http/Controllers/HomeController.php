@@ -13,7 +13,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
+        // dd('construct');
     }
 
     /**
@@ -23,6 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        dd(\Auth::user());
         return view('home');
+    }
+
+    public function page()
+    {
+        dd('page');
     }
 }
