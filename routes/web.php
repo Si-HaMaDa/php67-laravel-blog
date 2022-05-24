@@ -72,3 +72,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); //->middleware('auth');
 
 });
+
+
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+], function () {
+    /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+    Route::get('/', function () {
+        return 'Hello!';
+    });
+
+    Route::get('test', function () {
+        dd(config('app.locale'));
+    });
+});
+
+/** OTHER PAGES THAT SHOULD NOT BE LOCALIZED **/

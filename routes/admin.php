@@ -6,24 +6,32 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\TagController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [AdminController::class, 'index'])->name('index');
+Route::group([
+    // 'prefix' => \Mcamara\LaravelLocalization\Facades\LaravelLocalization::setLocale(),
+    'prefix' => 'admin',
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+], function () {
 
-// Route::get('blogs', [BlogController::class, 'index'])->name('blogs.index');
+    Route::get('/', [AdminController::class, 'index'])->name('index');
 
-// Route::get('blogs/create', [BlogController::class, 'create'])->name('blogs.create');
+    // Route::get('blogs', [BlogController::class, 'index'])->name('blogs.index');
 
-// Route::post('blogs', [BlogController::class, 'store'])->name('blogs.store');
+    // Route::get('blogs/create', [BlogController::class, 'create'])->name('blogs.create');
 
-// Route::get('blogs/{id}', [BlogController::class, 'show'])->name('blogs.show');
+    // Route::post('blogs', [BlogController::class, 'store'])->name('blogs.store');
 
-// Route::get('blogs/{id}/edit', [BlogController::class, 'edit'])->name('blogs.edit');
+    // Route::get('blogs/{id}', [BlogController::class, 'show'])->name('blogs.show');
 
-// Route::put('blogs/{id}', [BlogController::class, 'update'])->name('blogs.update');
+    // Route::get('blogs/{id}/edit', [BlogController::class, 'edit'])->name('blogs.edit');
 
-// Route::delete('blogs/{id}', [BlogController::class, 'destroy'])->name('blogs.destroy');
+    // Route::put('blogs/{id}', [BlogController::class, 'update'])->name('blogs.update');
 
-Route::resource('blogs', BlogController::class);
+    // Route::delete('blogs/{id}', [BlogController::class, 'destroy'])->name('blogs.destroy');
 
-Route::resource('users', UserController::class);
+    /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+    Route::resource('blogs', BlogController::class);
 
-Route::resource('tags', TagController::class);
+    Route::resource('users', UserController::class);
+
+    Route::resource('tags', TagController::class);
+});

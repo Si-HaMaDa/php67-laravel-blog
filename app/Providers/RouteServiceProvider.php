@@ -48,7 +48,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
 
             Route::middleware('web', 'auth', \App\Http\Middleware\AdminMiddleware::class)
-                ->prefix('admin')
+                ->prefix(\LaravelLocalization::setLocale())
                 ->as('admin.')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/admin.php'));
