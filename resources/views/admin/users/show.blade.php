@@ -13,6 +13,7 @@
                 <th scope="col">{{ __('users.ID') }}</th>
                 <th scope="col">{{ __('users.Name') }}</th>
                 <th scope="col">{{ __('users.Email') }}</th>
+                <th scope="col">{{ __('users.Blogs') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -26,8 +27,20 @@
                 <td>
                     {{ $user->email }}
                 </td>
+                <td>
+                    {{ $user->blogs->count() }}
+                </td>
             </tr>
         </tbody>
     </table>
 </div>
+
+@foreach ($user->blogs as $blog)
+<p>
+    <a href="{{ route('admin.blogs.show', $blog->id) }}">
+        {{ $blog->title }}
+    </a>
+</p>
+@endforeach
+
 @endsection
