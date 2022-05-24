@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\TagController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AdminController::class, 'index'])->name('index');
@@ -24,3 +25,5 @@ Route::get('/', [AdminController::class, 'index'])->name('index');
 Route::resource('blogs', BlogController::class);
 
 Route::resource('users', UserController::class);
+
+Route::resource('tags', TagController::class);

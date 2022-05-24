@@ -108,9 +108,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/admin/tags">
                                 <span data-feather="users"></span>
-                                Customers
+                                Tags
                             </a>
                         </li>
                         <li class="nav-item">
