@@ -15,6 +15,7 @@
                 <th scope="col">Content</th>
                 <th scope="col">Image</th>
                 <th scope="col">User Name</th>
+                <th scope="col">Tags</th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +34,11 @@
                 </td>
                 <td>
                     {{ $blog->user->name }}
+                </td>
+                <td>
+                    @foreach ($blog->tags as $tag)
+                    <span>{{ $tag->name }}</span>,
+                    @endforeach
                 </td>
             </tr>
         </tbody>

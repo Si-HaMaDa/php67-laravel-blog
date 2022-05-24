@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -20,12 +21,12 @@ class BlogController extends Controller
     public function create()
     {
         $users = User::select('id', 'name')->get();
-        return view('admin.blogs.create', ['users' => $users]);
+        $tags = Tag::select('id', 'name')->get();
+        return view('admin.blogs.create', ['users' => $users, 'tags' => $tags]);
     }
 
     public function store(Request $request)
     {
-
         $request->validate([
             'title' => 'required|max:255|min:5',
             'content' => 'required',
@@ -47,7 +48,9 @@ class BlogController extends Controller
         $blog->image = $image;
         $blog->save(); */
 
-        Blog::create($data);
+        $blog = Blog::create($data);
+
+        $blog->tags()->sync($data['tags']);
 
         return redirect(route('admin.blogs.index'))->with('success', 'Blog inserted!');
     }

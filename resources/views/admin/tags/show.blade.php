@@ -12,6 +12,7 @@
             <tr>
                 <th scope="col">{{ __('tags.ID') }}</th>
                 <th scope="col">{{ __('tags.Name') }}</th>
+                <th scope="col">{{ __('tags.Blogs') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -21,6 +22,11 @@
                 </td>
                 <td>
                     {{ $tag->name }}
+                </td>
+                <td>
+                    @foreach ($tag->blogs as $blog)
+                    <span>{{ $blog->title }}</span>,
+                    @endforeach
                 </td>
             </tr>
         </tbody>

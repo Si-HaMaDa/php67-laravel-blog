@@ -39,9 +39,17 @@
                 <select class="form-control" name="user_id" id="user_id">
                     <option value="">Select user</option>
                     @foreach ($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    <option value="{{ $user->id }}">{{ $user->name }}</option>
                     @endforeach
                 </select>
+            </div>
+            <div class="col-md-6">
+                <label for="inputUserID4" class="form-label">Tags: </label>
+                <br>
+                @foreach ($tags as $tag)
+                <label for="{{ $tag->name }}" class="form-label">{{ $tag->name }}</label>
+                <input type="checkbox" name="tags[]" id="{{ $tag->name }}" value="{{ $tag->id }}">
+                @endforeach
             </div>
             <div class="col-12">
                 <button type="submit" class="btn btn-primary">Submit Blog</button>
